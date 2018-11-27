@@ -56,7 +56,7 @@ func (lc *LRUCache) Put(key interface{}, value interface{}) {
 	lc.head = e
 }
 
-// Get : get value of key from lru cache with result
+// Get - get value of key from lru cache with result
 func (lc *LRUCache) Get(key interface{}) (interface{}, bool) {
 	if e, ok := lc.cache[key]; ok {
 		lc.refresh(e)
@@ -65,7 +65,7 @@ func (lc *LRUCache) Get(key interface{}) (interface{}, bool) {
 	return nil, false
 }
 
-// Delete : delete item by key from lru cache
+// Delete - delete item by key from lru cache
 func (lc *LRUCache) Delete(key interface{}) {
 	if e, ok := lc.cache[key]; ok {
 		delete(lc.cache, key)
@@ -73,7 +73,7 @@ func (lc *LRUCache) Delete(key interface{}) {
 	}
 }
 
-// Range : calls f sequentially for each key and value present in the lru cache
+// Range - calls f sequentially for each key and value present in the lru cache
 func (lc *LRUCache) Range(f func(key, value interface{}) bool) {
 	for i := lc.head; i != nil; i = i.Next() {
 		if !f(i.Key, i.Value) {
@@ -82,22 +82,30 @@ func (lc *LRUCache) Range(f func(key, value interface{}) bool) {
 	}
 }
 
-// Front : get front element of lru cache
+// Update - inplace update
+func (lc *LRUCache) Update(key interface{}, f func(value *interface{})) {
+	if e, ok := lc.cache[key]; ok {
+		f(&e.Value)
+		lc.refresh(e)
+	}
+}
+
+// Front - get front element of lru cache
 func (lc *LRUCache) Front() *Element {
 	return lc.head
 }
 
-// Back : get back element of lru cache
+// Back - get back element of lru cache
 func (lc *LRUCache) Back() *Element {
 	return lc.tail
 }
 
-// Len : length of lru cache
+// Len - length of lru cache
 func (lc *LRUCache) Len() int {
 	return len(lc.cache)
 }
 
-// Capacity : capacity of lru cache
+// Capacity - capacity of lru cache
 func (lc *LRUCache) Capacity() int {
 	return lc.capacity
 }
