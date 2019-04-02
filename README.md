@@ -1,5 +1,8 @@
 # cache.go
 
+[![license](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](https://github.com/orca-zhang/cache.go/blob/master/LICENSE)
+[![Go Report Card](https://goreportcard.com/badge/github.com/orca-zhang/cache.go)](https://goreportcard.com/report/github.com/orca-zhang/cache.go)
+
 - Other Language
   - [JavaScript](https://github.com/orca-zhang/cache.js)
   - [C++](https://github.com/ez8-co/linked_hash)
