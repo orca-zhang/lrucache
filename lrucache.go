@@ -41,9 +41,11 @@ func (lc *LRUCache) Put(key interface{}, value interface{}) {
 	if lc.capacity == 0 {
 		return
 	} else if len(lc.cache) >= lc.capacity {
-		// evict the oldest item
-		delete(lc.cache, lc.tail.Key)
-		lc.remove(lc.tail)
+		// transfer the tail item as the new item, then refresh
+		lc.tail.Key = key
+		lc.tail.Value = value
+		lc.refresh(lc.tail)
+		return
 	}
 
 	e := &Element{nil, lc.head, key, value}
