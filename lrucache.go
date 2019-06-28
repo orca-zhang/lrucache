@@ -42,8 +42,10 @@ func (lc *LRUCache) Put(key interface{}, value interface{}) {
 		return
 	} else if len(lc.cache) >= lc.capacity {
 		// transfer the tail item as the new item, then refresh
+		delete(lc.cache, lc.tail.Key)
 		lc.tail.Key = key
 		lc.tail.Value = value
+		lc.cache[key] = lc.tail
 		lc.refresh(lc.tail)
 		return
 	}
