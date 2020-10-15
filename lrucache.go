@@ -27,7 +27,7 @@ type LRUCache struct {
 
 // New - create a new lru cache object
 func New(capacity int) *LRUCache {
-	return &LRUCache{make(map[interface{}]*Element), nil, nil, capacity}
+	return &LRUCache{make(map[interface{}]*Element, capacity), nil, nil, capacity}
 }
 
 // Put - put a cache item into lru cache
