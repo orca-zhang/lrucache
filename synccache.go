@@ -37,8 +37,8 @@ type scValue struct {
 }
 
 func nextPowOf2(cap int) int {
-	if cap < 2 {
-		return 2
+	if cap <= 1 {
+		return 1
 	}
 	if cap&(cap-1) == 0 {
 		return cap
