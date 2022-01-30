@@ -1,3 +1,21 @@
+
+
+- 不再维护，使用更好的平替🦄【[ecache](https://github.com/orca-zhang/ecache) 】轻量本地内存缓存
+  - 🤏 代码量<300行、30s完成接入   
+  - 🚀 高性能、极简设计、并发安全
+  - 🏳️‍🌈 支持`LRU` 和 `LRU-2`两种模式   
+  - 🦖 额外小组件支持分布式一致性
+
+---
+
+- No more maintenance, please use better 🦄【[ecache](https://github.com/orca-zhang/ecache)】 instead.
+	- 🤏  Less than 300 lines, cost only ~30s to assemble
+	- 🚀  Extremely easy, ultra fast and  concurrency-safe
+	- 🏳️‍🌈  Support both `LRU` mode and  `LRU-2` mode inside
+	- 🦖  Extra plugin that support distributed consistency
+
+---
+
 # lrucache
 
 [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](https://github.com/orca-zhang/lrucache/blob/master/LICENSE)
